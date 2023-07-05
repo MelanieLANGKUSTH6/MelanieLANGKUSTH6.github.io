@@ -1,9 +1,69 @@
+/* Style de la scroll-bar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--second-color) var(--main-color);
+  }
+  
+
+*::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+*::-webkit-scrollbar-track {
+    background: var(--main-color);
+  }
+  
+*::-webkit-scrollbar-thumb {
+    background-color: var(--second-color);
+    border-radius: 20px;
+    border: 3px solid var(--main-color);
+  }
+
+/* Animation */
+.anim-typewriter{
+    animation: typewriter 4s steps(44) 1s 1 normal both,
+               blinkTextCursor 500ms steps(44) infinite normal;
+  }
+  @keyframes typewriter{
+    from{width: 0;}
+    to{width: 18em;}
+  }
+  @keyframes blinkTextCursor{
+    from{border-right-color: black;}
+    to{border-right-color: transparent;}
+  }
+
+/* Ma charte graphique */
 :root {
     --main-color: #19381f;
     --second-color: #91cb3e;
     --color-contrast: #eee82c;
     --color-variante: #4c934c;
-    font-family: 'Century Gothic Paneuropean', sans-serif;                                                   
+    font-family: 'Courier New', Courier, monospace;                                                   
+}
+
+/*ASIDE TEMPORAIRE*/
+
+body {
+    position: relative;
+}
+
+.en_construction {
+    z-index: 5;
+    position: fixed;
+    top: 30%;
+    left: 10%;
+    transform: rotate(15deg);
+    background-color: #19381f;
+    border-radius: 10px;
+    border: #eee82c 4px dashed;
+}
+
+.p_en_construction {
+    color: #eee82c;
+    font-size: 4em;
+    font-weight: bold;
+    padding: 2em;
 }
 
 /*HEADER*/
@@ -46,12 +106,42 @@ main {
     width: 95%;
     height: fit-content;
     margin: 1rem auto;
-    padding: 0 2rem;
     border: 2px solid var(--main-color);
 }
 
-div {
-    height: 100px;
+.main__about {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4c934c;
+}
+
+.main__about-div1,
+.main__about-div2 {
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.main__about-text {
+    font-size: 150%;
+    border-right: 2px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+.main__about-text2 {
+    text-align: left;
+    color: #eee82c;
+}
+
+.main__about-img {
+    margin: 2rem 0;
+    width: 70%;
+    background-color: var(--second-color);
+    clip-path: circle(50% at 50% 50%);
 }
 
 /*FOOTER*/
