@@ -19,19 +19,6 @@
     border: 3px solid var(--main-color);
   }
 
-/* Animation */
-.anim-typewriter{
-    animation: typewriter 4s steps(44) 1s 1 normal both,
-               blinkTextCursor 500ms steps(44) infinite normal;
-  }
-  @keyframes typewriter{
-    from{width: 0;}
-    to{width: 18em;}
-  }
-  @keyframes blinkTextCursor{
-    from{border-right-color: black;}
-    to{border-right-color: transparent;}
-  }
 
 /* Ma charte graphique */
 :root {
@@ -46,6 +33,7 @@
 
 body {
     position: relative;
+    background-color: grey;
 }
 
 .en_construction {
@@ -67,95 +55,76 @@ body {
     padding: 2em;
 }
 
-/*HEADER*/
+/* CSS mobile first */
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 95%;
-    height: fit-content;
-    margin: 1rem auto;
-    padding: 0 2rem;
-    background-color: var(--main-color);
+body {
+    font-size: 16px;
 }
 
+/* CSS éléments globaux */
+
+/** HEADER*/
 h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     margin: 1.5rem 0;
     font-weight: bold;
 }
 
-.header__menu {
+.to_nav {
     color: white;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
 }
 
-.header__menu-li {
-    display: inline;
-    margin-left: 0.75rem;
-    padding-left: 0.75rem;
-    border-left: 2px solid var(--color-variante);
+#toggle {
+    display: none;
 }
 
-.header__menu-li:hover {
-    color: var(--color-contrast);
+    /* Nav */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        background-color: var(--main-color);
+        color: white;
+        /* transform: translateY(-100%);
+        will-change: transform; */
+    }
+    nav ul{
+        margin-top: 9rem;
+    }
+    nav ul li {
+        margin: 1.5rem;
+    }
+
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+    margin: 1rem auto;
+    padding: 0 2rem;
+    background-color: var(--main-color);
 }
 
-/*MAIN*/
+/** MAIN*/
 main {
     width: 95%;
     height: fit-content;
     margin: 1rem auto;
 }
 
-main>div {
+section {
+    width: 100%;
+    background-color: var(--color-variante);
+    border: 2px solid var(--main-color);
     margin-top: 1.2em;
 }
 
-.main__about {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-variante);
-    border: 2px solid var(--main-color);
-}
-
-.main__about-div1,
-.main__about-div2 {
-    width: 50%;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.main__about-text {
-    font-size: 150%;
-    border-right: 2px solid black;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
-}
-
-.main__about-text2 {
-    text-align: left;
-    color: var(--color-contrast);
-}
-
-.main__about-img {
-    margin: 2rem 0;
-    width: 70%;
-    background-color: var(--second-color);
-    clip-path: circle(50% at 50% 50%);
-}
-
 .main__citation {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: var(--color-variante);
-    border: 2px solid var(--main-color);
+    display: none;
 }
 
 q {
@@ -173,30 +142,11 @@ cite {
 /*FOOTER*/
 footer {
     width: 95%;
-    height: fit-content;
     margin: 1rem auto;
-    padding: 0 2rem;
-}
-
-.footer__menu {
-    color: var(--second-color);
 }
 
 .footer__menu-ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 3rem;
-    border-bottom: 2px solid var(--main-color);
-}
-
-.footer__menu-li {
-    margin-left: 0.75rem;
-    padding-left: 0.75rem;
-}
-
-.footer__menu-li:hover {
-    color: var(--color-contrast);
+    display: none;
 }
 
 .footer__texte {
@@ -206,3 +156,77 @@ footer {
     padding: 1.5rem 0;
     line-height: 1.3rem;
 }
+
+/** autres éléments */
+
+tag {
+    border-radius: 15px;
+    color: var(--color-contrast);
+    background-color: var(--main-color);
+    padding: 0.2em 0.5em;
+}
+
+.ul_tag {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ul_tag > li {
+    margin: 0.4rem 0.2rem;
+}
+
+/** exemple de media queries, en format tablet (au-dessus de 768px largeur d'écran) mon h1 grossit*/
+@media screen and (min-width: 768px) {
+    
+}
+
+/** Small Desktop*/
+@media screen and (min-width: 968px) {
+   /*CSS adaptatif*/
+
+    /* HEADER Nav */
+    .to_nav {
+        display: none;
+    }
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    nav {
+        position: relative;
+        height: fit-content;
+    }
+    nav ul {
+        display: flex;
+        margin: 0;
+    }
+
+   .main__citation {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: var(--color-variante);
+    border: 2px solid var(--main-color);
+    }
+}
+
+/** Desktop*/
+@media screen and (min-width: 1200px) {
+    /*CSS adatatif*/
+    .main__citation {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: var(--color-variante);
+        border: 2px solid var(--main-color);
+    }
+}
+
+
+
+
+
+
+
